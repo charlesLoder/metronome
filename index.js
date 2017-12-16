@@ -1,22 +1,25 @@
-var totalBeeps = 1; // everything related to totalBeeps will eventually be changed
+let totalBeeps = 1; // everything related to totalBeeps will eventually be changed
+
+const choiceBpm = function (input) {
+  return eval(input);
+}
 
 const playBeep = function (bpm) {
-  tempo = setTimeout( function() {playBeep(bpm)} , (60000 / bpm));
+  let tempo = setTimeout( function() {playBeep(bpm)} , (60000 / bpm));
   document.getElementById("accent").play();
   console.log("beep");
   //
   totalBeeps++;
   if (totalBeeps > 8) {
     clearTimeout(tempo);
+    totalBeeps = 1;
   }
-
-}
-
-const choiceBpm = function () {
-  input = document.getElementById("userBpm").value;
-  return eval(input);
+  //
 }
 
 document.getElementById("start").addEventListener("click", () => {
-  playBeep(choiceBpm());
+  let userBpmInput = document.getElementById("userBpm").value;
+  playBeep(choiceBpm(userBpmInput));
 })
+
+// next step, add bpb
