@@ -4,15 +4,20 @@ const playBeep = function (bpm) {
   bpm = choiceBpm();
   speed = setTimeout(playBeep, (60000 / bpm));
   document.getElementById("accent").play();
+  console.log("beep");
 
   totalBeeps++;
   if (totalBeeps > 8) {
     clearTimeout(speed);
   }
-  
+
 }
 
 const choiceBpm = function (input) {
   input = document.getElementById("userBpm").value;
   return input;
 }
+
+document.getElementById("start").addEventListener("click", () => {
+  playBeep();
+})
