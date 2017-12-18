@@ -1,5 +1,3 @@
-let beatCount = 1;
-
 const choiceBpm = function (input) {
   return eval(input);
 }
@@ -9,13 +7,14 @@ const choiceBpb = function (input) {
 }
 
 const playBeep = function (bpm, bpb) {
-  let tempo = setTimeout( function() {playBeep(bpm, bpb)} , (60000 / bpm));
+  let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat)} , (60000 / bpm));
   // document.getElementById("accent").play();
   console.log("beep");
+  console.log(currentBeat);
   //
-  beatCount++;
-  if (beatCount > bpb) {
-    beatCount = 1;
+  currentBeat++;
+  if (currentBeat > bpb) {
+    currentBeat = 1;
     clearTimeout(tempo);
   }
   //
@@ -24,5 +23,5 @@ const playBeep = function (bpm, bpb) {
 document.getElementById("start").addEventListener("click", () => {
   let userBpmInput = document.getElementById("userBpm").value;
   let userBpbInput = document.getElementById("userBpb").value;
-  playBeep(choiceBpm(userBpmInput), choiceBpb(userBpbInput));
+  playBeep(choiceBpm(userBpmInput), choiceBpb(userBpbInput), currentBeat = 1);
 })
