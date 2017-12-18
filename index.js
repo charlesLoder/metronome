@@ -6,7 +6,7 @@ const choiceBpb = function (input) {
   return eval(input);
 }
 
-const playBeep = function (bpm, bpb) {
+const playBeep = function (bpm, bpb, currentBeat) {
   let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat)} , (60000 / bpm));
   // document.getElementById("accent").play();
   console.log("beep");
@@ -23,5 +23,5 @@ const playBeep = function (bpm, bpb) {
 document.getElementById("start").addEventListener("click", () => {
   let userBpmInput = document.getElementById("userBpm").value;
   let userBpbInput = document.getElementById("userBpb").value;
-  playBeep(choiceBpm(userBpmInput), choiceBpb(userBpbInput), currentBeat = 1);
+  playBeep(choiceBpm(userBpmInput), choiceBpb(userBpbInput), 1);
 })
