@@ -11,6 +11,11 @@ document.getElementById("addBpb").addEventListener("click", () => {
   beatList.appendChild(beat);
 })
 
+document.getElementById("minusBpb").addEventListener("click", () => {
+  let beatList = document.getElementById("beatList");
+  beatList.removeChild(beatList.lastChild)
+})
+
 
 const playBeep = function (bpm, bpb, currentBeat) {
   let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat)} , (60000 / bpm));

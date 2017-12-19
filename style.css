@@ -1,1 +1,7 @@
-
+ul {
+  text-align:left;
+}
+ul li {
+  display: inline-block;
+  margin: 2px;
+}
