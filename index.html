@@ -9,8 +9,16 @@
     <h1>Metronome</h1>
     <label for="userBpm">BPM</label>
     <input type="number" name="userBpm" id="userBpm" min="40" max="220" value="120"><br>
+    <!-- can get rid of userBpb as beatList will replace it  -->
     <label for="userBpb">BPB</label>
     <input type="number" name="userBpb" id="userBpb" min="1" max="12" value="4"><br>
+
+
+    <ul id="beatList">
+      <li> <button type="button" value="true">1</button></li>
+    </ul>
+    <button type="button" name="addBpb" id="addBpb">+</button>
+    <button type="button" name="minusBpb" id="minusBpb">-</button> <br>
 
     <button type="button" id="start">Start</button>
 
