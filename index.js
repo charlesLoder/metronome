@@ -2,21 +2,6 @@ const choiceBpm = function (input) {
   return eval(input);
 }
 
-document.getElementById("addBpb").addEventListener("click", () => {
-  let beatList = document.getElementById("beatList");
-  let beat = document.createElement("li");
-  let beatButton = document.createElement("button");
-  beatButton.appendChild(document.createTextNode( document.getElementById("beatList").getElementsByTagName("li").length + 1) );
-  beat.appendChild(beatButton);
-  beatList.appendChild(beat);
-})
-
-document.getElementById("minusBpb").addEventListener("click", () => {
-  let beatList = document.getElementById("beatList");
-  beatList.removeChild(beatList.lastChild)
-})
-
-
 const playBeep = function (bpm, bpb, currentBeat) {
   let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat)} , (60000 / bpm));
 
@@ -39,11 +24,26 @@ const playBeep = function (bpm, bpb, currentBeat) {
   }
 }
 
+const addBpb = function (ul, li, btn) {
+  btn.appendChild(document.createTextNode( document.getElementById("beatList").getElementsByTagName("li").length + 1) );
+  li.appendChild(btn);
+  ul.appendChild(li);
+}
+
+document.getElementById("addBpb").addEventListener("click", () => {
+  let beatList = document.getElementById("beatList");
+  let beat = document.createElement("li");
+  let beatButton = document.createElement("button");
+  addBpb(beatList, beat, beatButton)
+})
+
+document.getElementById("minusBpb").addEventListener("click", () => {
+  let beatList = document.getElementById("beatList");
+  beatList.removeChild(beatList.lastChild)
+})
+
 document.getElementById("start").addEventListener("click", () => {
   let userBpmInput = document.getElementById("userBpm").value;
   let userBpbInput = document.getElementById("beatList").getElementsByTagName("li").length;
   playBeep(choiceBpm(userBpmInput), userBpbInput, 1);
 })
-
-// maybe, add an ul of buttons
-// that would bpb = length of the ul (i.e. document.getElementsByTagName("ul").length)
