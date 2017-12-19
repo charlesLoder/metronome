@@ -39,7 +39,7 @@ document.getElementById("addBpb").addEventListener("click", () => {
 
 document.getElementById("minusBpb").addEventListener("click", () => {
   let beatList = document.getElementById("beatList");
-  beatList.removeChild(beatList.lastChild)
+  beatList.removeChild(beatList.lastElementChild)
 })
 
 document.getElementById("start").addEventListener("click", () => {
