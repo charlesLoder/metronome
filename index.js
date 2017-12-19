@@ -24,8 +24,9 @@ const playBeep = function (bpm, bpb, currentBeat) {
   }
 }
 
-const addBpb = function (ul, li, btn) {
-  btn.appendChild(document.createTextNode( document.getElementById("beatList").getElementsByTagName("li").length + 1) );
+const addBpb = function (ul, li, btn, length) {
+  btn.appendChild(document.createTextNode(length) );
+  btn.setAttribute("id", "beat-" + length);
   li.appendChild(btn);
   ul.appendChild(li);
 }
@@ -34,16 +35,17 @@ document.getElementById("addBpb").addEventListener("click", () => {
   let beatList = document.getElementById("beatList");
   let beat = document.createElement("li");
   let beatButton = document.createElement("button");
-  addBpb(beatList, beat, beatButton)
-})
+  let ulLength = document.getElementById("beatList").getElementsByTagName("li").length + 1;
+  addBpb(beatList, beat, beatButton, ulLength);
+});
 
 document.getElementById("minusBpb").addEventListener("click", () => {
   let beatList = document.getElementById("beatList");
-  beatList.removeChild(beatList.lastElementChild)
-})
+  beatList.removeChild(beatList.lastElementChild);
+});
 
 document.getElementById("start").addEventListener("click", () => {
   let userBpmInput = document.getElementById("userBpm").value;
   let userBpbInput = document.getElementById("beatList").getElementsByTagName("li").length;
   playBeep(choiceBpm(userBpmInput), userBpbInput, 1);
-})
+});
