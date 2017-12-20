@@ -42,7 +42,7 @@ const playBeep = function (bpm, bpb, currentBeat, i) {
     i = (currentBeat - 1);
   }
 
-  let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat, i)} , (60000 / bpm));
+  tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat, i)} , (60000 / bpm));
 
 }
 
@@ -70,10 +70,27 @@ document.getElementById("minusBpb").addEventListener("click", () => {
 });
 
 document.getElementById("start").addEventListener("click", () => {
+  let tempo;
   let startBtn = document.getElementById("start");
   let userBpmInput = document.getElementById("userBpm").value;
   let acctbtn = document.getElementsByClassName("acctbtn");
-  playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0);
+  // switch (startBtn.innerHTML) {
+  //   case "Start":
+  //     playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0);
+  //     startBtn.innerHTML = "Stop";
+  //     break;
+  //   case "Stop":
+  //     clearTimeout(tempo);
+  //     startBtn.innerHTML = "Start";
+  //     console.log("Working!");
+  //     break;
+  if (startBtn.innerHTML === "Start") {
+    playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0);
+    startBtn.innerHTML = "Stop";
+  } else {
+    startBtn.innerHTML = "Start";
+  }
+  // }
 });
 
 document.querySelector("#beatList").addEventListener("click", () => {
