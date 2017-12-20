@@ -23,6 +23,7 @@ const playBeep = function (bpm, bpb, currentBeat, i) {
   if (bpb[i] === 1 ) {
     console.log(currentBeat);
     console.log("beep!");
+    document.getElementById("accent").play()
     if (currentBeat >= bpb.length) {
         currentBeat = 1;
         i = 0;
@@ -33,11 +34,13 @@ const playBeep = function (bpm, bpb, currentBeat, i) {
   } else if (currentBeat >= bpb.length) {
     console.log(currentBeat);
     console.log("beep");
+    document.getElementById("noAccent").play()
     currentBeat = 1;
     i = 0;
   } else {
     console.log(currentBeat);
     console.log("beep");
+    document.getElementById("noAccent").play()
     currentBeat++;
     i = (currentBeat - 1);
   }
