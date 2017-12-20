@@ -20,9 +20,9 @@ const bpbArray = function (btnClass) {
 }
 
 const playBeep = function (bpm, bpb, currentBeat) {
+  // let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat)} , (60000 / bpm));
   let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat)} , (60000 / bpm));
-  console.log(bpb, typeof bpb[0]);
-
+/******************************************************************************
   if (currentBeat === 1) {
     console.log("beep!");
     // document.getElementById("accent").play();
@@ -41,6 +41,19 @@ const playBeep = function (bpm, bpb, currentBeat) {
     clearTimeout(tempo); // this is just to stop it after a while
     currentBeat++;
   }
+******************************************************************************/
+  bpb.forEach( (e, i) => {
+    if (e === 1) {
+      console.log("beep!");
+      currentBeat++;
+    } else if (currentBeat >= bpb.length) {
+      console.log("beep");
+      currentBeat = 1;
+    } else {
+      console.log("beep");
+    }
+  })
+
 }
 
 document.getElementById("addBpb").addEventListener("click", () => {
