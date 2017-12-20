@@ -2,33 +2,45 @@ const choiceBpm = function (input) {
   return eval(input);
 }
 
+const addBpb = function (ul, li, btn, length) {
+  btn.appendChild(document.createTextNode(length) );
+  btn.setAttribute("id", "beat-" + length);
+  btn.setAttribute("class", "acctbtn");
+  btn.setAttribute("value", 0);
+  li.appendChild(btn);
+  ul.appendChild(li);
+}
+
+const bpbArray = function (btnClass) {
+  let accentArray = [];
+  Array.prototype.forEach.call (btnClass, function (btn) {
+    accentArray.push(parseFloat(btn.value));
+  });
+  return accentArray;
+}
+
 const playBeep = function (bpm, bpb, currentBeat) {
   let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat)} , (60000 / bpm));
+  console.log(bpb, typeof bpb[0]);
 
-  if (currentBeat == 1) {
-    // console.log("beep!");
-    document.getElementById("accent").play();
+  if (currentBeat === 1) {
+    console.log("beep!");
+    // document.getElementById("accent").play();
     console.log(currentBeat);
     currentBeat++;
   } else if (currentBeat >= bpb) {
     console.log(currentBeat);
     currentBeat = 1;
-    // console.log("beep");
-    document.getElementById("noAccent").play();
+    console.log("beep");
+    // document.getElementById("noAccent").play();
     // clearTimeout(tempo); // this is just to stop it after a while
   } else {
-    // console.log("beep");
-    document.getElementById("noAccent").play();
+    console.log("beep");
+    // document.getElementById("noAccent").play();
     console.log(currentBeat);
+    clearTimeout(tempo); // this is just to stop it after a while
     currentBeat++;
   }
-}
-
-const addBpb = function (ul, li, btn, length) {
-  btn.appendChild(document.createTextNode(length) );
-  btn.setAttribute("id", "beat-" + length);
-  li.appendChild(btn);
-  ul.appendChild(li);
 }
 
 document.getElementById("addBpb").addEventListener("click", () => {
@@ -46,6 +58,6 @@ document.getElementById("minusBpb").addEventListener("click", () => {
 
 document.getElementById("start").addEventListener("click", () => {
   let userBpmInput = document.getElementById("userBpm").value;
-  let userBpbInput = document.getElementById("beatList").getElementsByTagName("li").length;
-  playBeep(choiceBpm(userBpmInput), userBpbInput, 1);
+  let acctbtn = document.getElementsByClassName("acctbtn");
+  playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1);
 });
