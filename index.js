@@ -20,26 +20,40 @@ const bpbArray = function (btnClass) {
 }
 
 const playBeep = function (bpm, bpb, currentBeat, i) {
-
   if (bpb[i] === 1 ) {
-    // console.log("The value of bpb[i] is: " + bpb[i]);
+    console.log(currentBeat);
     console.log("beep!");
-    currentBeat++;
-    i = (currentBeat - 1);
+    if (currentBeat >= bpb.length) {
+        currentBeat = 1;
+        i = 0;
+    } else {
+      currentBeat++;
+      i = (currentBeat - 1);
+    }
   } else if (currentBeat >= bpb.length) {
-    // console.log("The value of bpb[i] is: " + bpb[i]);
+    console.log(currentBeat);
     console.log("beep");
     currentBeat = 1;
     i = 0;
   } else {
-    // console.log("The value of bpb[i] is: " + bpb[i]);
+    console.log(currentBeat);
     console.log("beep");
     currentBeat++;
     i = (currentBeat - 1);
   }
-  
+
   let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat, i)} , (60000 / bpm));
 
+}
+
+const changeValue = function (btn) {
+  if (btn.value === "1") {
+    btn.setAttribute("value", "0");
+    btn.setAttribute("class", "acctbtn noAccent");
+  } else {
+    btn.setAttribute("value", "1");
+    btn.setAttribute("class", "acctbtn accent");
+  }
 }
 
 document.getElementById("addBpb").addEventListener("click", () => {
@@ -56,7 +70,13 @@ document.getElementById("minusBpb").addEventListener("click", () => {
 });
 
 document.getElementById("start").addEventListener("click", () => {
+  let startBtn = document.getElementById("start");
   let userBpmInput = document.getElementById("userBpm").value;
   let acctbtn = document.getElementsByClassName("acctbtn");
   playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0);
 });
+
+document.querySelector("#beatList").addEventListener("click", () => {
+  let selectButton = this.document.activeElement;
+  changeValue(selectButton);
+})

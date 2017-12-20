@@ -1,7 +1,16 @@
 ul {
   text-align:left;
 }
+
 ul li {
   display: inline-block;
   margin: 2px;
+}
+
+.accent {
+  background-color: #4CAF50;
+}
+
+.noAccent {
+  background-color: buttonface;
 }
