@@ -19,40 +19,26 @@ const bpbArray = function (btnClass) {
   return accentArray;
 }
 
-const playBeep = function (bpm, bpb, currentBeat) {
-  // let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat)} , (60000 / bpm));
-  let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat)} , (60000 / bpm));
-/******************************************************************************
-  if (currentBeat === 1) {
+const playBeep = function (bpm, bpb, currentBeat, i) {
+
+  if (bpb[i] === 1 ) {
+    // console.log("The value of bpb[i] is: " + bpb[i]);
     console.log("beep!");
-    // document.getElementById("accent").play();
-    console.log(currentBeat);
     currentBeat++;
-  } else if (currentBeat >= bpb) {
-    console.log(currentBeat);
+    i = (currentBeat - 1);
+  } else if (currentBeat >= bpb.length) {
+    // console.log("The value of bpb[i] is: " + bpb[i]);
+    console.log("beep");
     currentBeat = 1;
-    console.log("beep");
-    // document.getElementById("noAccent").play();
-    // clearTimeout(tempo); // this is just to stop it after a while
+    i = 0;
   } else {
+    // console.log("The value of bpb[i] is: " + bpb[i]);
     console.log("beep");
-    // document.getElementById("noAccent").play();
-    console.log(currentBeat);
-    clearTimeout(tempo); // this is just to stop it after a while
     currentBeat++;
+    i = (currentBeat - 1);
   }
-******************************************************************************/
-  bpb.forEach( (e, i) => {
-    if (e === 1) {
-      console.log("beep!");
-      currentBeat++;
-    } else if (currentBeat >= bpb.length) {
-      console.log("beep");
-      currentBeat = 1;
-    } else {
-      console.log("beep");
-    }
-  })
+  
+  let tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat, i)} , (60000 / bpm));
 
 }
 
@@ -72,5 +58,5 @@ document.getElementById("minusBpb").addEventListener("click", () => {
 document.getElementById("start").addEventListener("click", () => {
   let userBpmInput = document.getElementById("userBpm").value;
   let acctbtn = document.getElementsByClassName("acctbtn");
-  playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1);
+  playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0);
 });
