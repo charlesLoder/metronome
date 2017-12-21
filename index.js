@@ -39,9 +39,9 @@ const playBeep = function (bpm, bpb, currentBeat, i, ctx, funcAccent, funcNoAcce
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (bpb[i] === 1 ) {
-    console.log("beep!");
+    // console.log("beep!");
     funcAccent(currentBeat, ctx);
-    // document.getElementById("accent").play()
+    document.getElementById("accent").play();
     if (currentBeat >= bpb.length) {
         currentBeat = 1;
         i = 0;
@@ -50,15 +50,15 @@ const playBeep = function (bpm, bpb, currentBeat, i, ctx, funcAccent, funcNoAcce
       i = (currentBeat - 1);
     }
   } else if (currentBeat >= bpb.length) {
-    console.log("beep");
+    // console.log("beep");
     canvasNoAccent(currentBeat, ctx);
-    // document.getElementById("noAccent").play()
+    document.getElementById("noAccent").play();
     currentBeat = 1;
     i = 0;
   } else {
     canvasNoAccent(currentBeat, ctx);
-    console.log("beep");
-    // document.getElementById("noAccent").play()
+    // console.log("beep");
+    document.getElementById("noAccent").play();
     currentBeat++;
     i = (currentBeat - 1);
   }

@@ -107,11 +107,14 @@ li {
 .bpb-btn-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 #addBpb,
 #minusBpb {
-  margin: 0 2px;
+  flex-basis: 0;
+  margin: 0px 2px;
   flex-grow: 1;
 }
+
+/****** Media Queries *******/
