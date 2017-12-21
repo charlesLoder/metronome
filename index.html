@@ -8,7 +8,12 @@
   <body>
     <h1>Metronome</h1>
     <label for="userBpm">BPM</label>
-    <input type="number" name="userBpm" id="userBpm" min="40" max="220" value="120"><br>
+    <!-- <input type="number" name="userBpm" id="userBpm" min="40" max="220" value="120"> -->
+<form oninput="output.value = userBpm.value">
+  <input type="range" id="userBpm" name="userBpm" min="40" max="220" value="60">
+  <output name="output" for="userBpm"></output>
+</form>
+
 
     <ul id="beatList">
       <li> <button type="button" value=1 id="beat-1" class="acctbtn accent">1</button></li>
