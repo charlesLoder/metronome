@@ -21,10 +21,24 @@ const bpbArray = function (btnClass) {
   return accentArray;
 }
 
-const playBeep = function (bpm, bpb, currentBeat, i) {
+const canvasAccent = function (currentBeat, ctx) {
+  ctx.font = "30px Arial";
+  ctx.fillStyle = "#FF0000";
+  ctx.fillText(currentBeat, 100, 110);
+}
+
+const canvasNoAccent = function (currentBeat, ctx) {
+  ctx.font = "30px Arial";
+  ctx.fillStyle = "#000";
+  ctx.fillText(currentBeat, 100, 110);
+}
+
+const playBeep = function (bpm, bpb, currentBeat, i, ctx, funcAccent, funcNoAccent) {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   if (bpb[i] === 1 ) {
-    console.log(currentBeat);
     console.log("beep!");
+    funcAccent(currentBeat, ctx);
     // document.getElementById("accent").play()
     if (currentBeat >= bpb.length) {
         currentBeat = 1;
@@ -34,20 +48,19 @@ const playBeep = function (bpm, bpb, currentBeat, i) {
       i = (currentBeat - 1);
     }
   } else if (currentBeat >= bpb.length) {
-    console.log(currentBeat);
     console.log("beep");
+    canvasNoAccent(currentBeat, ctx);
     // document.getElementById("noAccent").play()
     currentBeat = 1;
     i = 0;
   } else {
-    console.log(currentBeat);
+    canvasNoAccent(currentBeat, ctx);
     console.log("beep");
     // document.getElementById("noAccent").play()
     currentBeat++;
     i = (currentBeat - 1);
   }
-
-  tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat, i)} , (60000 / bpm));
+  tempo = setTimeout( function() {playBeep(bpm, bpb, currentBeat, i, ctx, funcAccent, funcNoAccent)} , (60000 / bpm));
 
 }
 
@@ -83,9 +96,11 @@ document.getElementById("start").addEventListener("click", () => {
   let startBtn = document.getElementById("start");
   let userBpmInput = document.getElementById("userBpm").value;
   let acctbtn = document.getElementsByClassName("acctbtn");
+  let canvas = document.getElementById("canvas");
+  let ctx = canvas.getContext("2d");
   switch (startBtn.innerHTML) {
     case "Start":
-      playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0);
+      playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0, ctx, canvasAccent, canvasNoAccent);
       startBtn.innerHTML = "Stop";
       break;
     case "Stop":
