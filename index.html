@@ -14,24 +14,33 @@
     <section class="container">
       <div class="metronome-container">
 
-        <canvas id="canvas" width="200" height="200" class="beat-display"></canvas><br>
-        <label for="userBpm">BPM</label>
-        <!-- <input type="number" name="userBpm" id="userBpm" min="40" max="220" value="120"> -->
-    <form oninput="output.value = userBpm.value">
-      <input type="range" id="userBpm" name="userBpm" min="40" max="220" value="60">
-      <output name="output" for="userBpm"></output>
-    </form>
-        <ul id="beatList">
-          <li> <button type="button" value=1 id="beat-1" class="acctbtn accent">1</button></li>
-          <li> <button type="button" value=0 id="beat-2" class="acctbtn noAccent">2</button></li>
-          <li> <button type="button" value=0 id="beat-3" class="acctbtn noAccent">3</button></li>
-          <li> <button type="button" value=0 id="beat-4" class="acctbtn noAccent">4</button></li>
-        </ul>
-        <button type="button" name="addBpb" id="addBpb">+</button>
-        <button type="button" name="minusBpb" id="minusBpb">-</button> <br>
+        <canvas id="canvas" width="250" height="250" class="beat-display"></canvas>
+
+        <div class="bpm-container">
+          <label for="userBpm">BPM</label>
+          <form oninput="output.value = userBpm.value" class="bpm-form-container">
+            <input type="range" id="userBpm" name="userBpm" min="40" max="220" value="60">
+            <output name="output" for="userBpm">60</output>
+          </form>
+        </div>
+        <div class="bpb-container">
+          <ul id="beatList">
+            <li> <button type="button" value=1 id="beat-1" class="acctbtn accent">1</button></li>
+            <li> <button type="button" value=0 id="beat-2" class="acctbtn noAccent">2</button></li>
+            <li> <button type="button" value=0 id="beat-3" class="acctbtn noAccent">3</button></li>
+            <li> <button type="button" value=0 id="beat-4" class="acctbtn noAccent">4</button></li>
+          </ul>
+          <div class="bpb-btn-container">
+              <button type="button" name="addBpb" id="addBpb">+</button>
+              <button type="button" name="minusBpb" id="minusBpb">-</button>
+
+          </div>
+
+        </div>
+
 
         <button type="button" id="start">Start</button>
-        
+
       </div>
     </section>
 

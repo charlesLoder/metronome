@@ -1,11 +1,12 @@
 * {
   box-sizing: border-box;
 }
-
+/******** Header *********/
 header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-left: 10px
 }
 
 h1 {
@@ -22,31 +23,87 @@ strong {
   margin-top: 10px;
 }
 
+/******** Main *********/
 .container {
   margin: auto;
   display: flex;
   justify-content: center;
 }
 
+.metronome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-
-.beat-display {
+#canvas {
+  border-radius: 10px;
+  margin-bottom: 10px;
   border: 1px solid #000;
 }
 
-ul {
-  text-align:left;
+button {
+  border-radius: 3px;
+  font-size: 20px;
+  background-color: #F5F5F5;
 }
 
-ul li {
-  display: inline-block;
+.bpm-container {
+  font-family: "Open Sans";
+}
+
+.bpm-form-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bpb-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#beatList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+li {
+  padding: 0;
+  flex-grow: 1;
   margin: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.acctbtn {
+  flex-grow: 1;
+  border: none;
 }
 
 .accent {
-  background-color: #4CAF50;
+  background-color: #f44336;
+  color: white;
+  box-shadow: 1px 1px 3px black;
 }
 
 .noAccent {
-  background-color: buttonface;
+  box-shadow: 1px 1px 3px black;
+}
+
+.bpb-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#addBpb,
+#minusBpb {
+  margin: 0 2px;
+  flex-grow: 1;
 }
