@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+}
 /******** Header *********/
 header {
   display: flex;
@@ -34,6 +38,9 @@ strong {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 30px;
+  /* border: 1px solid #000;
+  border-radius: 10px; */
 }
 
 #canvas {
@@ -46,6 +53,7 @@ button {
   border-radius: 3px;
   font-size: 20px;
   background-color: #F5F5F5;
+  border: 1px solid #999;
 }
 
 .bpm-container {

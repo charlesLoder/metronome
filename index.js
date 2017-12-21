@@ -22,15 +22,17 @@ const bpbArray = function (btnClass) {
 }
 
 const canvasAccent = function (currentBeat, ctx) {
-  ctx.font = "30px Arial";
-  ctx.fillStyle = "#FF0000";
-  ctx.fillText(currentBeat, 100, 110);
+  ctx.font = "100px Open Sans";
+  ctx.fillStyle = "#f44336";
+  ctx.textAlign = 'center';
+  ctx.fillText(currentBeat, 125, 160);
 }
 
 const canvasNoAccent = function (currentBeat, ctx) {
-  ctx.font = "30px Arial";
+  ctx.font = "100px Open Sans";
   ctx.fillStyle = "#000";
-  ctx.fillText(currentBeat, 100, 110);
+  ctx.textAlign = 'center';
+  ctx.fillText(currentBeat, 125, 160);
 }
 
 const playBeep = function (bpm, bpb, currentBeat, i, ctx, funcAccent, funcNoAccent) {
