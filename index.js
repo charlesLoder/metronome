@@ -1,3 +1,5 @@
+var tempo;
+
 const choiceBpm = function (input) {
   return eval(input);
 }
@@ -23,7 +25,7 @@ const playBeep = function (bpm, bpb, currentBeat, i) {
   if (bpb[i] === 1 ) {
     console.log(currentBeat);
     console.log("beep!");
-    document.getElementById("accent").play()
+    // document.getElementById("accent").play()
     if (currentBeat >= bpb.length) {
         currentBeat = 1;
         i = 0;
@@ -34,13 +36,13 @@ const playBeep = function (bpm, bpb, currentBeat, i) {
   } else if (currentBeat >= bpb.length) {
     console.log(currentBeat);
     console.log("beep");
-    document.getElementById("noAccent").play()
+    // document.getElementById("noAccent").play()
     currentBeat = 1;
     i = 0;
   } else {
     console.log(currentBeat);
     console.log("beep");
-    document.getElementById("noAccent").play()
+    // document.getElementById("noAccent").play()
     currentBeat++;
     i = (currentBeat - 1);
   }
@@ -73,27 +75,20 @@ document.getElementById("minusBpb").addEventListener("click", () => {
 });
 
 document.getElementById("start").addEventListener("click", () => {
-  let tempo;
   let startBtn = document.getElementById("start");
   let userBpmInput = document.getElementById("userBpm").value;
   let acctbtn = document.getElementsByClassName("acctbtn");
-  // switch (startBtn.innerHTML) {
-  //   case "Start":
-  //     playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0);
-  //     startBtn.innerHTML = "Stop";
-  //     break;
-  //   case "Stop":
-  //     clearTimeout(tempo);
-  //     startBtn.innerHTML = "Start";
-  //     console.log("Working!");
-  //     break;
-  if (startBtn.innerHTML === "Start") {
-    playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0);
-    startBtn.innerHTML = "Stop";
-  } else {
-    startBtn.innerHTML = "Start";
-  }
-  // }
+  switch (startBtn.innerHTML) {
+    case "Start":
+      playBeep(choiceBpm(userBpmInput), bpbArray(acctbtn), 1, 0);
+      startBtn.innerHTML = "Stop";
+      break;
+    case "Stop":
+      clearTimeout(tempo);
+      startBtn.innerHTML = "Start";
+      console.log("Working!");
+      break;
+    }
 });
 
 document.querySelector("#beatList").addEventListener("click", () => {
