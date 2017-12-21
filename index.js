@@ -34,7 +34,7 @@ const canvasNoAccent = function (currentBeat, ctx) {
 }
 
 const playBeep = function (bpm, bpb, currentBeat, i, ctx, funcAccent, funcNoAccent) {
-ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (bpb[i] === 1 ) {
     console.log("beep!");

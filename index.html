@@ -3,29 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>Metronome</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Metronome</h1>
-    <canvas id="canvas" width="200" height="200" class="beat-display"></canvas><br>
-    <label for="userBpm">BPM</label>
-    <!-- <input type="number" name="userBpm" id="userBpm" min="40" max="220" value="120"> -->
-<form oninput="output.value = userBpm.value">
-  <input type="range" id="userBpm" name="userBpm" min="40" max="220" value="60">
-  <output name="output" for="userBpm"></output>
-</form>
+    <header>
+      <strong>METRONOME</strong> <h1>by Charles Loder</h1>
+    </header>
+
+    <section class="container">
+      <div class="metronome-container">
+
+        <canvas id="canvas" width="200" height="200" class="beat-display"></canvas><br>
+        <label for="userBpm">BPM</label>
+        <!-- <input type="number" name="userBpm" id="userBpm" min="40" max="220" value="120"> -->
+    <form oninput="output.value = userBpm.value">
+      <input type="range" id="userBpm" name="userBpm" min="40" max="220" value="60">
+      <output name="output" for="userBpm"></output>
+    </form>
+        <ul id="beatList">
+          <li> <button type="button" value=1 id="beat-1" class="acctbtn accent">1</button></li>
+          <li> <button type="button" value=0 id="beat-2" class="acctbtn noAccent">2</button></li>
+          <li> <button type="button" value=0 id="beat-3" class="acctbtn noAccent">3</button></li>
+          <li> <button type="button" value=0 id="beat-4" class="acctbtn noAccent">4</button></li>
+        </ul>
+        <button type="button" name="addBpb" id="addBpb">+</button>
+        <button type="button" name="minusBpb" id="minusBpb">-</button> <br>
+
+        <button type="button" id="start">Start</button>
+        
+      </div>
+    </section>
 
 
-    <ul id="beatList">
-      <li> <button type="button" value=1 id="beat-1" class="acctbtn accent">1</button></li>
-      <li> <button type="button" value=0 id="beat-2" class="acctbtn noAccent">2</button></li>
-      <li> <button type="button" value=0 id="beat-3" class="acctbtn noAccent">3</button></li>
-      <li> <button type="button" value=0 id="beat-4" class="acctbtn noAccent">4</button></li>
-    </ul>
-    <button type="button" name="addBpb" id="addBpb">+</button>
-    <button type="button" name="minusBpb" id="minusBpb">-</button> <br>
-
-    <button type="button" id="start">Start</button>
 
     <audio id="accent" src="sounds/high-beep.wav" preload="auto" type="audio/wav">Audio not supported on your browser</audio>
     <audio id="noAccent" src="sounds/low-beep.wav" preload="auto" type="audio/wav">Audio not supported on your browser</audio>
