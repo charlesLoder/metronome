@@ -1,4 +1,4 @@
-var tempo;
+let tempo;
 
 const choiceBpm = function (input) {
   return eval(input);
@@ -74,6 +74,11 @@ document.getElementById("minusBpb").addEventListener("click", () => {
   beatList.removeChild(beatList.lastElementChild);
 });
 
+document.querySelector("#beatList").addEventListener("click", () => {
+  let selectButton = this.document.activeElement;
+  changeValue(selectButton);
+})
+
 document.getElementById("start").addEventListener("click", () => {
   let startBtn = document.getElementById("start");
   let userBpmInput = document.getElementById("userBpm").value;
@@ -86,12 +91,7 @@ document.getElementById("start").addEventListener("click", () => {
     case "Stop":
       clearTimeout(tempo);
       startBtn.innerHTML = "Start";
-      console.log("Working!");
+      console.log("Stopped!");
       break;
     }
 });
-
-document.querySelector("#beatList").addEventListener("click", () => {
-  let selectButton = this.document.activeElement;
-  changeValue(selectButton);
-})
