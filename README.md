@@ -2,7 +2,7 @@
 A web based musical metronome app
 
 ## What it is
-This is web based musical metronome designed with basic frontend languages (i.e. HTML, CSS, JS). 
+This is web based musical metronome designed with basic frontend languages (i.e. HTML, CSS, JS).
 
 ## Getting Started
 Simply download the repository and open index.html in the browser
@@ -13,7 +13,7 @@ Simply download the repository and open index.html in the browser
 * Select which beat is to be accented by clicking on that beat and changing its color:
   * this is a feature not common in most metronomes
 
-##Personal Goals
+## Personal Goals
 In this project I attempted to set some personal goals:
 1. make another project
 2. use vanilla javascript, no JQuery
@@ -23,6 +23,6 @@ In this project I attempted to set some personal goals:
      * pass functions into functions
      * no global variables
 
-##Issues
+## Issues
 1. sometimes the first "measure" seems to have inaccurate timing, then it works fine
 2. there is one global variable– ```let tempo;``` at line 1. I cannot figure out how to make the app work without it
