@@ -39,8 +39,6 @@ strong {
   flex-direction: column;
   justify-content: center;
   padding: 30px;
-  /* border: 1px solid #000;
-  border-radius: 10px; */
 }
 
 #canvas {
@@ -118,3 +116,13 @@ li {
 }
 
 /****** Media Queries *******/
+
+@media (min-width: 749px) {
+  header {
+    flex-direction: row;
+    align-items: baseline;
+  }
+  h1 {
+    margin-left: 10px;
+  }
+}
