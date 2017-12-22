@@ -4,13 +4,22 @@
 
 body {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  min-height: 100vh;
+}
+strong,
+.bpm-container,
+footer {
+  font-family: "Open Sans";
 }
 /******** Header *********/
 header {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
-  margin-left: 10px
+  margin-left: 15px
 }
 
 h1 {
@@ -21,7 +30,6 @@ h1 {
 }
 
 strong {
-  font-family: "Open Sans";
   font-weight: 400;
   font-size: 3rem;
   margin-top: 10px;
@@ -30,15 +38,18 @@ strong {
 /******** Main *********/
 .container {
   margin: auto;
+  width: 100%;
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 .metronome-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 30px;
+  /* padding: 30px; */
+  width: 60%;
 }
 
 #canvas {
@@ -52,10 +63,6 @@ button {
   font-size: 20px;
   background-color: #F5F5F5;
   border: 1px solid #999;
-}
-
-.bpm-container {
-  font-family: "Open Sans";
 }
 
 .bpm-form-container {
@@ -115,14 +122,38 @@ li {
   flex-grow: 1;
 }
 
+/****** Footer ********/
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 60px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.footer-text {
+  margin-right: 20px;
+}
+
 /****** Media Queries *******/
 
-@media (min-width: 749px) {
+@media screen and (min-width: 600px) {
   header {
     flex-direction: row;
     align-items: baseline;
   }
   h1 {
     margin-left: 10px;
+  }
+  .metronome-container,
+  .footer-container {
+    max-width: 300px;
   }
 }
