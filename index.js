@@ -5,12 +5,14 @@ const choiceBpm = function (input) {
 }
 
 const addBpb = function (ul, li, btn, length) {
-  btn.appendChild(document.createTextNode(length) );
-  btn.setAttribute("id", "beat-" + length);
-  btn.setAttribute("class", "acctbtn noAccent");
-  btn.setAttribute("value", 0);
-  li.appendChild(btn);
-  ul.appendChild(li);
+  if (ul.childElementCount <= 7) {
+    btn.appendChild(document.createTextNode(length) );
+    btn.setAttribute("id", "beat-" + length);
+    btn.setAttribute("class", "acctbtn noAccent");
+    btn.setAttribute("value", 0);
+    li.appendChild(btn);
+    ul.appendChild(li);
+  }
 }
 
 const bpbArray = function (btnClass) {
