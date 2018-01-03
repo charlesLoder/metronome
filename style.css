@@ -37,10 +37,12 @@ strong {
 
 /******** Main *********/
 .container {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-grow: 1;
   height: 100%;
 }
 
@@ -48,8 +50,7 @@ strong {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* padding: 30px; */
-  width: 60%;
+  width: 70%;
 }
 
 #canvas {
@@ -140,6 +141,7 @@ footer {
 
 .footer-text {
   margin-right: 20px;
+  font-size: .75rem;
 }
 
 /****** Media Queries *******/
@@ -155,5 +157,8 @@ footer {
   .metronome-container,
   .footer-container {
     max-width: 300px;
+  }
+  .footer-text {
+    font-size: 1rem;
   }
 }
