@@ -18,10 +18,6 @@ In this project I attempted to set some personal goals:
 1. make another project
 2. use vanilla javascript, no JQuery
 3. learn more about HTML ```<audio>```
-4. apply a functional-ish approach to JS, meaning:
-     * besides callbacks on event lsiteners, all functions take parameters
-     * pass functions into functions
-     * no global variables
 
 ## Issues
 1. sometimes the first "measure" seems to have inaccurate timing, then it works fine

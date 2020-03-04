@@ -88,11 +88,14 @@ document.getElementById("addBpb").addEventListener("click", () => {
 
 document.getElementById("minusBpb").addEventListener("click", () => {
   let beatList = document.getElementById("beatList");
-  beatList.removeChild(beatList.lastElementChild);
+  let ulLength = document.getElementById("beatList").getElementsByTagName("li").length;
+  if(ulLength > 1){
+    beatList.removeChild(beatList.lastElementChild);
+  }
 });
 
-document.querySelector("#beatList").addEventListener("click", () => {
-  let selectButton = this.document.activeElement;
+document.getElementById("beatList").addEventListener("click", () => {
+  let selectButton = event.target;
   changeValue(selectButton);
 })
 
